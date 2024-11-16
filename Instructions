@@ -1,0 +1,25 @@
+-Enter the first number.
+-Select an operation (+, -, *, or /).
+-Enter the next number.
+-The program displays the result and asks whether you want to continue or start a new calculation.
+
+Example:
+ _____________________
+|  _________________  |
+| | Pythonista   0. | |
+| |_________________| |
+|_____________________|
+
+What is the 1st number? : 10
++
+-
+*
+/
+Pick an operation from above: +
+What is the next number? : 5
+10 + 5 = 15
+Type 'y' to continue with 15, or 'n' to start a new calculation: y
+What operation you want to do: *
+What is the next number? : 2
+15 * 2 = 30
+Type 'y' to continue with 30, or 'n' to start a new calculation: n
