@@ -1,3 +1,4 @@
+# ASCII art logo for the calculator
 logo = """
  _____________________
 |  _________________  |
@@ -15,48 +16,55 @@ logo = """
 |_____________________|
 """
 
-def plus(x, y):
+# Function definitions for basic arithmetic operations
+def add(x, y):
     return x + y
 
-
-def minus(x, y):
+def subtract(x, y):
     return x - y
 
-
-def multi(x, y):
+def multiply(x, y):
     return x * y
 
+def divide(x, y):
+    if y != 0:
+        return x / y
+    else:
+        return "Error! Division by zero."
 
-def div(x, y):
-    return x / y
-
-
-operations = {"+": plus, "-": minus, "*": multi, "/": div}
-
+# Dictionary to map operators to their respective functions
+operations = {"+": add, "-": subtract, "*": multiply, "/": divide}
 
 def calculator():
+    """Main calculator function to handle calculations."""
     print(logo)
-    f = True
 
-    x = float(input("What is the.kugthsdtjhj 1st number? : "))
-    for i in operations:
-        print(i)
-    oper = input("Pick an operation from above: ")
-    y = float(input("What is the 2nd number? : "))
-    what = operations[oper]
-    first_answer = what(x, y)
-    print(f"{x} {oper} {y} = {first_answer}")
-    while x:
-        k = input(f"Type 'y' to continue operating with {first_answer}, or type 'n' to start a new calculation.")
-        if k == "y":
-            oper = input("What operation you wanta do : ")
-            z = float(input("What is the next number ? : "))
-            what = operations[oper]
-            second_answer = what(first_answer, z)
-            print(f"{first_answer} {oper} {z} = {second_answer}")
-            first_answer = second_answer
+    # Input for the first number
+    num1 = float(input("What is the 1st number? : "))
+
+    # Loop for continuous operations
+    continue_calculation = True
+    while continue_calculation:
+        # Display available operations
+        for symbol in operations:
+            print(symbol)
+        operation = input("Pick an operation from above: ")
+
+        # Input for the next number
+        num2 = float(input("What is the next number? : "))
+
+        # Perform the selected operation
+        calculation_function = operations[operation]
+        result = calculation_function(num1, num2)
+        print(f"{num1} {operation} {num2} = {result}")
+
+        # Ask user whether to continue or start over
+        choice = input(f"Type 'y' to continue with {result}, or 'n' to start a new calculation: ").lower()
+        if choice == "y":
+            num1 = result
         else:
-            f = False
-            calculator()
+            continue_calculation = False
+            calculator()  # Restart the calculator
 
+# Start the calculator program
 calculator()
